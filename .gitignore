@@ -1,0 +1,12 @@
+# Written by Brian McCarthy
+bin/
+obj/
+.vs/
+.vscode/
+*.user
+*.suo
+*.db
+*.sqlite
+TestResults/
+coverage/
+.env

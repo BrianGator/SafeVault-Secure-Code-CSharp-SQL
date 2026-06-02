@@ -1,0 +1,27 @@
+// Written by Brian McCarthy
+namespace SafeVault.Web.Services;
+
+public interface IPasswordService
+{
+    string HashPassword(string password);
+    bool VerifyPassword(string password, string passwordHash);
+}
+
+public sealed class PasswordService : IPasswordService
+{
+    public string HashPassword(string password)
+    {
+        if (string.IsNullOrWhiteSpace(password))
+        {
+            throw new ArgumentException("Password cannot be empty.", nameof(password));
+        }
+
+        return BCrypt.Net.BCrypt.HashPassword(password, workFactor: 12);
+    }
+
+    public bool VerifyPassword(string password, string passwordHash)
+    {
+        if (string.IsNullOrWhiteSpace(password) || string.IsNullOrWhiteSpace(passwordHash)) return false;
+        return BCrypt.Net.BCrypt.Verify(password, passwordHash);
+    }
+}
