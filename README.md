@@ -358,6 +358,5 @@ Copilot also assisted with generating attack-simulation tests, including SQL inj
 - [x] Authentication and RBAC tests included
 - [x] Vulnerability summary included
 - [x] README included
-- [x] Written by Brian McCarthy included
 
 **Written by Brian McCarthy**
