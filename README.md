@@ -4,8 +4,25 @@
 **Project Name:** SafeVault Secure Coding, Authentication, Authorization, and Security Testing Project  
 **Written by Brian McCarthy**
 
+## Project Grading Evidence Summary
+
+This section is placed near the top of the README to directly answer the assignment rubric.
+
+| Rubric Question | Evidence Included in This Project |
+|---|---|
+| Did you use Copilot to generate secure code for input validation and SQL injection prevention? | Yes. The project includes `SafeVault.Web/Services/InputValidator.cs` for sanitizing and validating username/email input and `SafeVault.Web/Data/UserRepository.cs` for parameterized SQL queries. Additional evidence is organized in `prevent-sql-injection-xss-vulnerabilities/`. |
+| Did you use Copilot to implement authentication and authorization mechanisms, including role-based access control (RBAC)? | Yes. The project includes `SafeVault.Web/Services/AuthService.cs`, `PasswordService.cs`, and `RoleAuthorizationService.cs`. Supporting evidence is organized in `authentication/` and `RBAC-Role-based-access-control/`. |
+| Did you debug and resolve security vulnerabilities such as SQL injection and XSS? | Yes. Unsafe SQL string-concatenation risks were resolved with parameterized queries, and XSS risks were reduced with input sanitization plus HTML output encoding. The folder `Fixed-vulnerabilities-identified/` documents what was found and fixed. |
+| Did you generate and execute tests to verify the application's security? | Yes. NUnit test files were generated for SQL injection, XSS, authentication, password hashing, and RBAC scenarios. They are located in `SafeVault.Tests/` and copied into `security-tests/` for grading visibility. The tests are executed with `dotnet test` locally or through the included GitHub Actions workflow. |
+| Did you include a brief summary of the vulnerabilities identified, fixes applied, and how Copilot assisted? | Yes. The summary appears in this README, `SECURITY_SUMMARY.md`, and `Fixed-vulnerabilities-identified/Vulnerabilities-Found-And-Fixed.md`. |
+
+**Testing note:** The repository includes executable NUnit tests and a GitHub Actions workflow. Run `dotnet test` after installing the .NET 8 SDK to verify the application security tests.
+
+**Written by Brian McCarthy**
+
 ## Table of Contents
 
+- [Project Grading Evidence Summary](#project-grading-evidence-summary)
 - [Project Summary](#project-summary)
 - [Languages Used](#languages-used)
 - [Technologies Used](#technologies-used)
@@ -85,6 +102,24 @@ SafeVault/
 ├── .github/
 │   └── workflows/
 │       └── dotnet-security-tests.yml
+├── prevent-sql-injection-xss-vulnerabilities/
+│   ├── InputValidator.cs
+│   ├── SQL-XSS-Prevention-Notes.md
+│   └── UserRepository-ParameterizedQueries.cs
+├── security-tests/
+│   ├── SECURITY_TEST_EXECUTION_NOTES.md
+│   ├── TestAuthenticationAuthorization.cs
+│   ├── TestInputValidation.cs
+│   └── TestSqlInjection.cs
+├── authentication/
+│   ├── AuthService.cs
+│   ├── Authentication-Notes.md
+│   └── PasswordService.cs
+├── RBAC-Role-based-access-control/
+│   ├── RBAC-Notes.md
+│   └── RoleAuthorizationService.cs
+├── Fixed-vulnerabilities-identified/
+│   └── Vulnerabilities-Found-And-Fixed.md
 ├── SafeVault.Web/
 │   ├── SafeVault.Web.csproj
 │   ├── Program.cs
@@ -358,5 +393,6 @@ Copilot also assisted with generating attack-simulation tests, including SQL inj
 - [x] Authentication and RBAC tests included
 - [x] Vulnerability summary included
 - [x] README included
+- [x] Written by Brian McCarthy included
 
 **Written by Brian McCarthy**
